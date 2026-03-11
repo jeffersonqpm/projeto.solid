@@ -1,18 +1,25 @@
-## Getting Started
+# Princípios SOLID em Java
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+Os princípios **SOLID** são um conjunto de diretrizes para escrever código orientado a objetos mais **flexível**, **manutenível** e **escalável**. Criados por *Robert C. Martin (Uncle Bob)*, esses princípios ajudam a evitar código rígido, frágil e difícil de evoluir.
 
-## Folder Structure
+---
 
-The workspace contains two folders by default, where:
+## 🧱 S — Single Responsibility Principle (SRP)
+**Princípio da Responsabilidade Única**
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+> *"Uma classe deve ter apenas um motivo para mudar."*
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+Cada classe deve ser responsável por apenas uma parte da funcionalidade.  
+Isso deixa o código mais simples, testável e modular.
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+### ❌ Exemplo ruim
+```java
+public class UsuarioService {
+    public void salvarUsuario(Usuario u) {
+        // lógica de persistência
+    }
 
-## Dependency Management
-
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+    public void enviarEmailBoasVindas(Usuario u) {
+        // lógica de envio de e-mail
+    }
+}
